@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--View Controller-->
         <scene sceneID="tVm-66-fnV">
             <objects>
-                <tableViewController id="CBW-vg-2rd" sceneMemberID="viewController">
+                <tableViewController id="CBW-vg-2rd" customClass="ViewController" customModule="CustomAlarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ao1-Mh-KS5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1144.8" y="183.95802098950526"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Group View Controller-->
         <scene sceneID="aaW-LG-bAC">
             <objects>
-                <tableViewController id="mWK-yn-1gT" sceneMemberID="viewController">
+                <tableViewController id="mWK-yn-1gT" customClass="GroupViewController" customModule="CustomAlarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="opy-Jo-pNO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +79,9 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="mWK-yn-1gT" id="TSC-7j-s2b"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -103,6 +106,9 @@
                                         </label>
                                         <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPJ-Jr-GHj">
                                             <rect key="frame" x="318" y="6" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchChanged:" destination="mWK-yn-1gT" eventType="valueChanged" id="XiW-8A-bed"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -151,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="1862" y="184"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="9o7-FB-Zum">
             <objects>
-                <tableViewController id="mx8-Cp-sEa" sceneMemberID="viewController">
+                <tableViewController id="mx8-Cp-sEa" customClass="AlarmViewController" customModule="CustomAlarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="BVI-Ql-KfJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,6 +180,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="mx8-Cp-sEa" id="gw8-zA-sxn"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -195,6 +204,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="mx8-Cp-sEa" id="Sbc-2i-sPm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -209,7 +221,7 @@
                             <tableViewSection headerTitle="Remind me at" id="Tbo-wN-V7f">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="217" id="2Py-yi-yTt">
-                                        <rect key="frame" x="0.0" y="180" width="375" height="217"/>
+                                        <rect key="frame" x="0.0" y="179" width="375" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Py-yi-yTt" id="y9G-VS-4Y2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
@@ -224,6 +236,9 @@
                                                             <date key="date" timeIntervalSinceReferenceDate="510859402.66849798">
                                                                 <!--2017-03-10 17:23:22 +0000-->
                                                             </date>
+                                                            <connections>
+                                                                <action selector="datePickerChanged:" destination="mx8-Cp-sEa" eventType="valueChanged" id="ZXv-gB-HfB"/>
+                                                            </connections>
                                                         </datePicker>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,7 +257,7 @@
                             <tableViewSection headerTitle="Attch a picture" id="Ww5-DW-FEQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Gk3-ct-h4U">
-                                        <rect key="frame" x="0.0" y="454" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="452" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gk3-ct-h4U" id="Fm8-I7-HZN">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
@@ -280,9 +295,20 @@
                             <outlet property="delegate" destination="mx8-Cp-sEa" id="AF3-1B-qXN"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="caption" destination="5yC-CS-Y0T" id="AyR-YM-yGp"/>
+                        <outlet property="datePicker" destination="P0a-ok-8T7" id="cKa-e7-7GF"/>
+                        <outlet property="imageView" destination="D1x-0q-782" id="uP9-tK-ZYk"/>
+                        <outlet property="name" destination="YAf-ZE-D0O" id="xTL-z3-tgO"/>
+                        <outlet property="tapToSelectImage" destination="cWA-eW-0zi" id="4ii-wF-6RO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElB-4R-axD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xdQ-ET-4YA"/>
+                <tapGestureRecognizer id="xdQ-ET-4YA">
+                    <connections>
+                        <action selector="imageViewTapped:" destination="mx8-Cp-sEa" id="c6v-R0-2y8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2554" y="183"/>
         </scene>
