@@ -144,12 +144,16 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
         
         group.alarms.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        save()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         group.name = textField.text!
         title = group.name
+        
+        save()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -166,7 +170,8 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
         group.alarms.append(newAlarm)
         
         performSegue(withIdentifier: "EditAlarm", sender: newAlarm)
-        //save()
+        
+        save()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -193,6 +198,8 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
         } else {
             group.enabled = sender.isOn
         }
+        
+        save()
     }
     
     // align text of top 2 cells
@@ -202,6 +209,12 @@ class GroupViewController: UITableViewController, UITextFieldDelegate {
         cell.contentView.preservesSuperviewLayoutMargins = true
     }
 
+    func save() {
+        NotificationCenter.default.post(name: Notification.Name("save"), object: nil)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
