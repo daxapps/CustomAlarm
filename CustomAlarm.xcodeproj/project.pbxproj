@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E011CA4F1E742B3000358728 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011CA4E1E742B3000358728 /* Helper.swift */; };
 		E0756D441E73107B001CB27F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D431E73107B001CB27F /* AppDelegate.swift */; };
 		E0756D461E73107B001CB27F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D451E73107B001CB27F /* ViewController.swift */; };
 		E0756D491E73107C001CB27F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0756D471E73107C001CB27F /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E011CA4E1E742B3000358728 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E0756D401E73107B001CB27F /* CustomAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0756D431E73107B001CB27F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0756D451E73107B001CB27F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				E0756D691E73307B001CB27F /* Alarm.swift */,
 				E0756D671E733066001CB27F /* Group.swift */,
+				E011CA4E1E742B3000358728 /* Helper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0756D661E732CEE001CB27F /* AlarmViewController.swift in Sources */,
+				E011CA4F1E742B3000358728 /* Helper.swift in Sources */,
 				E0756D641E732CBC001CB27F /* GroupViewController.swift in Sources */,
 				E0756D461E73107B001CB27F /* ViewController.swift in Sources */,
 				E0756D681E733066001CB27F /* Group.swift in Sources */,
@@ -444,6 +448,7 @@
 				E0756D5F1E73107C001CB27F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0756D601E73107C001CB27F /* Build configuration list for PBXNativeTarget "CustomAlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +457,7 @@
 				E0756D621E73107C001CB27F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
