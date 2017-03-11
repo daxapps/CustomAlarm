@@ -98,17 +98,6 @@ class ViewController: UITableViewController, UNUserNotificationCenterDelegate {
         }
     }
     
-    func addGroup() {
-        
-        let newGroup = Group(name: "Name", playSound: true, enabled: false, alarms: [])
-        
-        groups.append(newGroup)
-        
-        performSegue(withIdentifier: "EditGroup", sender: newGroup)
-        
-        save()
-    }
-    
     func save() {
         
         do {
@@ -257,7 +246,115 @@ class ViewController: UITableViewController, UNUserNotificationCenterDelegate {
         
         tableView.reloadData()
     }
+    
+    func addGroup() {
+        
+        let newGroup = Group(name: "Name", playSound: true, enabled: false, alarms: [])
+        
+        groups.append(newGroup)
+        performSegue(withIdentifier: "EditGroup", sender: newGroup)
+        
+        save()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
+    }
 
+    func display(group groupID: String) {
+        
+        _ = navigationController?.popToRootViewController(animated: false)
+        
+        for group in groups {
+            
+            if group.id == groupID {
+                
+                performSegue(withIdentifier: "EditGroup", sender: group)
+                
+                return
+            }
+        }
+    }
+    
+    func destroy(group groupID: String) {
+        
+        _ = navigationController?.popToRootViewController(animated: false)
+        
+        for (index, group) in groups.enumerated() {
+            
+            if group.id == groupID {
+                
+                groups.remove(at: index)
+                break
+            }
+        }
+        
+        save()
+        load()
+    }
+    
+    func rename(group groupID: String, newName: String) {
+        
+        _ = navigationController?.popToRootViewController(animated: false)
+        
+        for group in groups {
+            
+            if group.id == groupID {
+                
+                group.name = newName
+                break
+            }
+        }
+        
+        save()
+        load()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        //pull out the buried userInfo dictionary
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let groupID = userInfo["group"] as? String {
+            
+            //if we got a group ID, we're good to go
+            
+            switch response.actionIdentifier {
+                
+            //the user swiped to unlock; do nothing
+            case UNNotificationDefaultActionIdentifier:
+                print("Default identifier")
+                
+            //the user dismissed the alert; do nothing
+            case UNNotificationDismissActionIdentifier:
+                print("Dismiss identifier")
+                
+            //the user asked to see the gorup, so call the display() method
+            case "show":
+                display(group: groupID)
+                break
+                
+            //the user asked to destroy the group, so call the destroy() method
+            case "destroy":
+                destroy(group: groupID)
+                break
+                
+            //the user asked to rename the group, so safely unwrap their text response and call rename
+            case "rename":
+                if let textResponse = response as? UNTextInputNotificationResponse {
+                    rename(group: groupID, newName: textResponse.userText)
+                }
+                break
+                
+            default:
+                break
+            }
+        }
+        
+        //you need to call the completion handler when your done
+        completionHandler()
+    }
 
 }
 
