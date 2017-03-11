@@ -15,6 +15,8 @@
 		E0756D591E73107C001CB27F /* CustomAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D581E73107C001CB27F /* CustomAlarmTests.swift */; };
 		E0756D641E732CBC001CB27F /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D631E732CBC001CB27F /* GroupViewController.swift */; };
 		E0756D661E732CEE001CB27F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D651E732CEE001CB27F /* AlarmViewController.swift */; };
+		E0756D681E733066001CB27F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D671E733066001CB27F /* Group.swift */; };
+		E0756D6A1E73307B001CB27F /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0756D691E73307B001CB27F /* Alarm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		E0756D5A1E73107C001CB27F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0756D631E732CBC001CB27F /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		E0756D651E732CEE001CB27F /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		E0756D671E733066001CB27F /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		E0756D691E73307B001CB27F /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				E0756D431E73107B001CB27F /* AppDelegate.swift */,
-				E0756D451E73107B001CB27F /* ViewController.swift */,
-				E0756D631E732CBC001CB27F /* GroupViewController.swift */,
-				E0756D651E732CEE001CB27F /* AlarmViewController.swift */,
+				E0756D6B1E73308A001CB27F /* Controller */,
+				E0756D6C1E73309D001CB27F /* Model */,
 				E0756D471E73107C001CB27F /* Main.storyboard */,
 				E0756D4A1E73107C001CB27F /* Assets.xcassets */,
 				E0756D4C1E73107C001CB27F /* LaunchScreen.storyboard */,
@@ -100,6 +103,25 @@
 				E0756D5A1E73107C001CB27F /* Info.plist */,
 			);
 			path = CustomAlarmTests;
+			sourceTree = "<group>";
+		};
+		E0756D6B1E73308A001CB27F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E0756D651E732CEE001CB27F /* AlarmViewController.swift */,
+				E0756D631E732CBC001CB27F /* GroupViewController.swift */,
+				E0756D451E73107B001CB27F /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E0756D6C1E73309D001CB27F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0756D691E73307B001CB27F /* Alarm.swift */,
+				E0756D671E733066001CB27F /* Group.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +232,9 @@
 				E0756D661E732CEE001CB27F /* AlarmViewController.swift in Sources */,
 				E0756D641E732CBC001CB27F /* GroupViewController.swift in Sources */,
 				E0756D461E73107B001CB27F /* ViewController.swift in Sources */,
+				E0756D681E733066001CB27F /* Group.swift in Sources */,
 				E0756D441E73107B001CB27F /* AppDelegate.swift in Sources */,
+				E0756D6A1E73307B001CB27F /* Alarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
